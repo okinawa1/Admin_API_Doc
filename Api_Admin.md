@@ -1902,11 +1902,11 @@
 
 ---
 
-#### 3.40.灌钱单笔存款补发商户回调
+#### 3.40.灌钱单笔存款新增
 
-- HttpMethod: `GET`
-- URI: `/api/admin/trade/deposit/feature/manual`
-- API 将重新推送该笔订单至支付商查询
+- HttpMethod: `POST`
+- URI: `/api/admin/trade/deposit/internal`
+- API 新增一笔灌钱订单
 
 ### Request
 
@@ -1916,8 +1916,10 @@
   
 |参数|参数名称|必填|说明|举例|
 |:------------:|:---------:|:---:|:-------------:|:-------:|
-| `id` | 订单流水号 | Y | 流水号 | 77499981 |
-| `paymentMethod` | 支付方式 | Y | 固定值给 101 | 101 |
+| `depositPaymentChannelId` | 灌钱银行卡 | Y | 依灌钱银行卡下拉单取得 | 146 |
+| `bankId` | 灌钱银行 | Y | 依银行总表下拉单取得 | 2 |
+| `amount` | 金额 | Y | 灌钱金额 | 100 |
+| `paymentChannelId` | 灌钱通道 | Y | 依灌钱通道下拉单取得 | 145 |
 
 </div>
 
