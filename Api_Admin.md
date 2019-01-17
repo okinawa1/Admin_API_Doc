@@ -1927,7 +1927,59 @@
 
 ---
 
-#### 3.41.提款列表查询
+#### 3.41.灌钱单笔存款补单
+
+- Feature: isEnableManualConfirm  (true 才开放此功能)
+- HttpMethod: `GET`
+- URI: `/api/admin/trade/deposit/feature/manualconfirm`
+- API 将订单列为失败
+
+### Request
+
+{::options parse_block_html="true" /}
+
+<div>
+  
+|参数|参数名称|必填|说明|举例|
+|:------------:|:---------:|:---:|:-------------:|:-------:|
+| `notes` | 补单原因 |  | 补单原因 | 失败 |
+| `result` | 补单结果 | Y | "成功"为 true, "失败" 为 false | true |
+| `paymentMethod` | 支付方式 | Y | 从订单列表的栏位取得 | 1 |
+| `PaymentType` | 支付类别 | Y | 从订单列表的栏位取得 | 2 |
+
+</div>
+
+>> [交易相关](#3交易相关) | [索引](#索引)
+
+---
+
+#### 3.41.灌钱单笔存款提醒
+
+- Feature: isEnableReminder  (true 才开放此功能)
+- HttpMethod: `GET`
+- URI: `/api/admin/trade/deposit/feature/reminder`
+- API 将订单列为等待审核催到账
+- 跳出视窗, 列出"商户订单号"和"金额", 无法编辑, 只能送出
+
+### Request
+
+{::options parse_block_html="true" /}
+
+<div>
+  
+|参数|参数名称|必填|说明|举例|
+|:------------:|:---------:|:---:|:-------------:|:-------:|
+| `depositId` | 订单id | Y | 订单唯一流水号 | 1 |
+| `actualAmount` | 金额 | Y | 金额 | 100 |
+| `paymentMethod` | 支付方式 | Y | 从订单列表的栏位取得 | 1 |
+
+</div>
+
+>> [交易相关](#3交易相关) | [索引](#索引)
+
+---
+
+#### 3.42.提款列表查询
 
 - HttpMethod: `GET`
 - URI: `/api/admin/trade/withdrawal/merchantwithdrawal`
@@ -1984,7 +2036,7 @@
 
 ---
 
-#### 3.42.提款资料详细
+#### 3.43.提款资料详细
 
 - HttpMethod: `GET`
 - URI: `/api/admin/trade/withdrawal/merchantwithdrawal`
@@ -2032,7 +2084,7 @@
 
 ---
 
-#### 3.43.单笔提款查询订单
+#### 3.44.单笔提款查询订单
 
 - HttpMethod: `GET`
 - URI: `/api/admin/trade/deposit/feature/query`
@@ -2058,7 +2110,7 @@
 
 ---
 
-#### 3.44.单笔提款补发商户回调
+#### 3.45.单笔提款补发商户回调
 
 - HttpMethod: `GET`
 - URI: `/api/admin/trade/deposit/feature/manual`
