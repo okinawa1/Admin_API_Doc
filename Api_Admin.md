@@ -1907,6 +1907,9 @@
 - HttpMethod: `POST`
 - URI: `/api/admin/trade/deposit/internal`
 - API 新增一笔灌钱订单
+- 灌钱银行卡(下拉单）：参考 灌钱银行卡选单
+- 灌钱银行（下拉单）：参考 银行选单 
+- 灌钱通道（下拉单）：参考 灌钱通道选单
 
 ### Request
 
@@ -1943,7 +1946,6 @@
 |参数|参数名称|必填|说明|举例|
 |:------------:|:---------:|:---:|:-------------:|:-------:|
 | `notes` | 补单原因 |  | 补单原因 | 失败 |
-| `result` | 补单结果 | Y | "成功"为 true, "失败" 为 false | true |
 | `paymentMethod` | 支付方式 | Y | 从订单列表的栏位取得 | 1 |
 | `PaymentType` | 支付类别 | Y | 从订单列表的栏位取得 | 2 |
 
@@ -3604,6 +3606,39 @@
 
 - HttpMethod: `GET`
 - URI: `/api/admin/systemextension/options/WithdrawalPaymentChannel`
+
+### Request
+
+{::options parse_block_html="true" /}
+
+<div>
+  
+|参数|参数名称|必填|说明|举例|
+|:------------:|:---------:|:---:|:-------------:|:-------:|
+| `id` | 支付类型id | Y | 支付类型id | 1 |
+
+</div>
+
+### Response
+{::options parse_block_html="true" /}
+
+<div>
+  
+|参数|参数名称|必填|说明|举例|
+|:------------:|:---------:|:---:|:-------------:|:-------:|
+| `id` | 流水号 | Y | 代表该支付方式唯一的代码 | 1 |
+| `name` | 支付方式名称 | Y | 支付方式名称 | 支付宝 |
+
+</div>
+
+>> [系統功能相关](#5系统功能相关) | [索引](#索引)
+
+---
+
+#### 5.17.取得灌钱银行卡选单
+
+- HttpMethod: `GET`
+- URI: `/api/admin/systemextension/options/internalbankcard`
 
 ### Request
 
